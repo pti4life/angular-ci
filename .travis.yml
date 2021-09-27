@@ -1,4 +1,4 @@
-language: node_js
+language: generic
 sudo: required
 services:
   - docker
@@ -7,4 +7,4 @@ before_install:
   - docker build -t pti4life/angular-ci -f Dockerfile.dev .
 
 script:
-  - docker run -it pti4life/angular-ci node_modules/.bin/ng test --karma-config karma.conf.ci.js frontend --code-coverage
+  - docker run -e CI=true -it pti4life/angular-ci node_modules/.bin/ng test --karma-config karma.conf.ci.js frontend --code-coverage
