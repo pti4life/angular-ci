@@ -1,0 +1,10 @@
+FROM node:alpine
+RUN apk add --update chromium
+WORKDIR '/app'
+RUN npm install -g npm@7.24.1
+ENV CHROME_BIN=/usr/bin/chromium-browser
+COPY /package.json .
+RUN npm install
+COPY . .
+CMD ["/bin/sh", "-c", "node_modules/.bin/ng serve --host 0.0.0.0"]
+# powershell: docker run -v /app/node_modules -v ${pwd}:/app -p 4200:4200 container_id
