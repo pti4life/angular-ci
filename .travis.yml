@@ -1,5 +1,4 @@
 language: generic
-sudo: required
 services:
   - docker
 
@@ -8,3 +7,16 @@ before_install:
 
 script:
   - docker run -e CI=true -it pti4life/angular-ci node_modules/.bin/ng test --karma-config karma.conf.ci.js frontend --code-coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "angular-ci"
+  env: "Angularci-env"
+  bucket_name: "elasticbeanstalk-us-east-2-463707494160"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
