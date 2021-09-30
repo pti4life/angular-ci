@@ -10,11 +10,11 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-2"
-  app: "angular-ci"
-  env: "Angularci-env"
-  bucket_name: "elasticbeanstalk-us-east-2-463707494160"
-  bucket_path: "docker"
+  region: 'us-east-2'
+  app: 'angular-ci'
+  env: 'angularci-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-463707494160'
+  bucket_path: 'angular-ci'
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
