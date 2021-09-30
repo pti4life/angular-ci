@@ -12,7 +12,7 @@ deploy:
   provider: elasticbeanstalk
   region: 'us-east-2'
   app: 'angular-ci'
-  env: 'angularci-env'
+  env: 'Angularci-env'
   bucket_name: 'elasticbeanstalk-us-east-2-463707494160'
   bucket_path: 'angular-ci'
   on:
